@@ -48,6 +48,7 @@ function onSubmitForm(event) {
 
     if (keyOfSearchPhoto === '') {
         Notiflix.Notify.info('Enter your request, please!', paramsForNotify);
+        btnLoadMore.classList.add('is-hidden');
         return;
     }
     fetchPhoto(keyOfSearchPhoto, page, perPage)
@@ -97,7 +98,7 @@ function onClickLoadMore() {
             createMarkup(searchResults);
             if (page === numberOfPage) {
                 btnLoadMore.classList.add('is-hidden');
-                Notify.info("We're sorry, but you've reached the end of search results.", paramsForNotify);
+                Notiflix.Notify.info("We're sorry, but you've reached the end of search results.", paramsForNotify);
                 btnLoadMore.removeEventListener('click', onClickLoadMore);
                 window.removeEventListener('scroll', showLoadMorePage);
             };
