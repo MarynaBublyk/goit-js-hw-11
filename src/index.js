@@ -67,7 +67,7 @@ function onSubmitForm(event) {
                 btnLoadMore.classList.remove('is-hidden');
                 window.addEventListener('scroll', showLoadMorePage);
             };
-            // scrollPage();
+            scrollPage();
         })
         .catch(onFetchError);
 
