@@ -60,7 +60,7 @@ function onSubmitForm(event) {
                 Notiflix.Notify.info(`Hooray! We found ${data.totalHits} images.`, paramsForNotify);
                 // console.log(searchResults);
                 createMarkup(searchResults);
-                simpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
+                SimpleLightboximpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
 
             };
             if (data.totalHits > perPage) {
@@ -103,7 +103,7 @@ function onClickLoadMore() {
             btnLoadMore.removeEventListener('click', onClickLoadMore);
             window.removeEventListener('scroll', showLoadMorePage);
             };
-            simpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
+            SimpleLightboximpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
             scrollPage();
         })
     .catch(onFetchError);
@@ -111,7 +111,7 @@ function onClickLoadMore() {
 };
 
 function onFetchError(error) {
-    console.log(error)
+    // console.log(error)
         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page or make another choice!', paramsForNotify);
 };
     
