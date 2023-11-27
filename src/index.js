@@ -1,7 +1,12 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import SimpleLightbox from "simplelightbox";
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
+let lightbox = new SimpleLightbox('.img_wrap a', { 
+                captionsData: 'alt',
+                captionDelay: 250,
+    });
 
 const refs = {
     searchForm: document.querySelector('.search-form'),
@@ -60,7 +65,7 @@ function onSubmitForm(event) {
                 Notiflix.Notify.info(`Hooray! We found ${data.totalHits} images.`, paramsForNotify);
                 // console.log(searchResults);
                 createMarkup(searchResults);
-                SimpleLightboximpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
+                lightbox.refresh();
 
             };
             if (data.totalHits > perPage) {
@@ -103,14 +108,14 @@ function onClickLoadMore() {
             btnLoadMore.removeEventListener('click', onClickLoadMore);
             window.removeEventListener('scroll', showLoadMorePage);
             };
-            SimpleLightboximpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
+            lightbox.refresh();
             scrollPage();
         })
     .catch(onFetchError);
     
 };
 
-function onFetchError(error) {
+function onFetchError() {
     // console.log(error)
         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page or make another choice!', paramsForNotify);
 };
