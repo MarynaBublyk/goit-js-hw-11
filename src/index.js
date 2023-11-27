@@ -97,13 +97,13 @@ function onClickLoadMore() {
             
             createMarkup(searchResults);
             if (page === numberOfPage) {
-                btnLoadMore.classList.add('is-hidden');
-                Notiflix.Notify.info("We're sorry, but you've reached the end of search results.", paramsForNotify);
-                btnLoadMore.removeEventListener('click', onClickLoadMore);
-                window.removeEventListener('scroll', showLoadMorePage);
+            btnLoadMore.classList.add('is-hidden');
+            Notiflix.Notify.info("We're sorry, but you've reached the end of search results.", paramsForNotify);
+            btnLoadMore.removeEventListener('click', onClickLoadMore);
+            window.removeEventListener('scroll', showLoadMorePage);
             };
             simpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
-            // scrollPage();
+            scrollPage();
         })
         .catch(onFetchError);
 };
