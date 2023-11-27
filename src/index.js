@@ -115,8 +115,8 @@ function onClickLoadMore() {
     
 };
 
-function onFetchError() {
-    // console.log(error)
+function onFetchError(error) {
+    console.log(error)
         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page or make another choice!', paramsForNotify);
 };
     
