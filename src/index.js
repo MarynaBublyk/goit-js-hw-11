@@ -69,8 +69,8 @@ function onSubmitForm(event) {
             };
             scrollPage();
         })
-    // .catch(onFetchError);
-        .catch(error => console.log(error))
+    .catch(onFetchError);
+        
 
     btnLoadMore.addEventListener('click', onClickLoadMore);
 
@@ -106,14 +106,14 @@ function onClickLoadMore() {
             simpleLightBox = new SimpleLightbox('.img_wrap a').refresh();
             scrollPage();
         })
-    // .catch(onFetchError);
-    .catch(error => console.log(error))
+    .catch(onFetchError);
+    
 };
 
-// function onFetchError(error) {
-//     // console.log(error)
-//         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page or make another choice!', paramsForNotify);
-// };
+function onFetchError(error) {
+    console.log(error)
+        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page or make another choice!', paramsForNotify);
+};
     
 function scrollPage() {
     const { height: cardHeight } = gallery.firstElementChild.getBoundingClientRect();
